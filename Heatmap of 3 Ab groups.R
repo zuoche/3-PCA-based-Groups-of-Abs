@@ -24,4 +24,7 @@ narac_new <- -log10(narac_new)
 row.names(narac_new) <- narac[,1]
 pheatmap(narac_new, scale="column", clustering_distance_col="correlation", cluster_rows=T, cluster_cols=T, fontsize=15, fontsize_rows=9)
 
+MyPC <- princomp(~., data = test[,3:30], cor = TRUE, na.action = na.omit) 
+summary(MyPC)
+biplot(MyPC, xlabs=test$case, cex=c(1, 0.75), col=c("grey", "red"))
 
